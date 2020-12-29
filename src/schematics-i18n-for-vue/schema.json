@@ -10,7 +10,7 @@
                 "$source": "argv",
                 "index": 0
             },
-            "x-prompt": "Enter i18n Set (ex: Common.Tip)"
+            "x-prompt": "Enter i18n Set (ex: Common.Tip or Tip)"
         },
         "tw": {
             "type": "string",
@@ -19,10 +19,37 @@
                 "index": 1
             },
             "x-prompt": "Enter zh-TW value"
+        },
+        "zh": {
+            "type": "string",
+            "$default": {
+                "$source": "argv",
+                "index": 1
+            },
+            "x-prompt": "Enter zh-CN value"
+        },
+        "en": {
+            "type": "string",
+            "$default": {
+                "$source": "argv",
+                "index": 1
+            },
+            "x-prompt": "Enter zh-EN value"
+        },
+        "vi": {
+            "type": "string",
+            "$default": {
+                "$source": "argv",
+                "index": 1
+            },
+            "x-prompt": "Enter zh-VI value"
         }
     },
     "required": [
         "key",
-        "tw"
+        "tw",
+        "zh",
+        "en",
+        "vi"
     ]
 }
