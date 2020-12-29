@@ -1,0 +1,28 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "title": "quick-i18n",
+    "type": "object",
+    "description": "quick generate i18n",
+    "properties": {
+        "key": {
+            "type": "string",
+            "$default": {
+                "$source": "argv",
+                "index": 0
+            },
+            "x-prompt": "Enter i18n Set (ex: Common.Tip)"
+        },
+        "tw": {
+            "type": "string",
+            "$default": {
+                "$source": "argv",
+                "index": 1
+            },
+            "x-prompt": "Enter zh-TW value"
+        }
+    },
+    "required": [
+        "key",
+        "tw"
+    ]
+}

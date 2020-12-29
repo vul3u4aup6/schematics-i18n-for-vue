@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "i18n": {
+      "description": "A blank schematic.",
+      "factory": "./schematics-i18n-for-vue/index#schematicsI18nForVue",
+      "schema": "./schematics-i18n-for-vue/schema.json"
+    }
+  }
+}
