@@ -5,19 +5,27 @@ This vue-repo can quick modify i18n at terminal.
 ### Installation
 
 ```bash
-npm i i18n-vue
-npm i -g @angular-devkit/schematics-cli@0.13.4
+npm i i18n-lb-vue
 npm install @phenomnomnominal/tsquery --save-dev
 ```
 
 ### How to use
 
 ```bash
-schematics i18n-vue:i18n
+schematics i18n-lb-vue:i18n
 ```
 
 ### Folder Structure
-src > lang > i18n > tw.js
+
+```bash
+|-src
+  |_assets
+    |_lang
+      |_tw.js
+      |_zh.js
+      |_en.js
+      |_vi.js
+```
 
 That's it!
  
