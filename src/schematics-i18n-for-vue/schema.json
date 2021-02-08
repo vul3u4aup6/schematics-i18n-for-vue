@@ -20,7 +20,7 @@
             },
             "x-prompt": "Enter zh-TW value"
         },
-        "zh": {
+        "cn": {
             "type": "string",
             "$default": {
                 "$source": "argv",
@@ -43,13 +43,22 @@
                 "index": 1
             },
             "x-prompt": "Enter zh-VI value"
+        },
+        "ja": {
+            "type": "string",
+            "$default": {
+                "$source": "argv",
+                "index": 1
+            },
+            "x-prompt": "Enter zh-JA value"
         }
     },
     "required": [
         "key",
         "tw",
-        "zh",
+        "cn",
         "en",
-        "vi"
+        "vi",
+        "ja"
     ]
 }

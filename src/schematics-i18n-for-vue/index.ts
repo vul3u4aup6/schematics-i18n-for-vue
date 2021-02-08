@@ -11,8 +11,11 @@ export function schematicsI18nForVue(_options: any): Rule {
     let option = _options;
     let optionKey=Object.keys(option)
     optionKey.shift()
+    console.log(optionKey)
     optionKey.forEach(lang=>{
       let langUrl=`./src/assets/lang/${lang}.js`
+      if(!tree.get(langUrl))
+        return
       const checkHasType = tsquery.query<ts.ObjectLiteralExpression>(tree.read(langUrl)!.toString(),`ObjectLiteralExpression> PropertyAssignment[name.name=${type}]`).pop()
       
       if(checkHasType){
