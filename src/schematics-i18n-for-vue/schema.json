@@ -12,14 +12,6 @@
             },
             "x-prompt": "Enter i18n Set (ex: Common.Tip or Tip)"
         },
-        "tw": {
-            "type": "string",
-            "$default": {
-                "$source": "argv",
-                "index": 1
-            },
-            "x-prompt": "Enter zh-TW value"
-        },
         "cn": {
             "type": "string",
             "$default": {
@@ -36,29 +28,28 @@
             },
             "x-prompt": "Enter zh-EN value"
         },
-        "vi": {
+        "jp": {
             "type": "string",
             "$default": {
                 "$source": "argv",
                 "index": 1
             },
-            "x-prompt": "Enter zh-VI value"
+            "x-prompt": "Enter zh-JP value"
         },
-        "ja": {
+        "vn": {
             "type": "string",
             "$default": {
                 "$source": "argv",
                 "index": 1
             },
-            "x-prompt": "Enter zh-JA value"
+            "x-prompt": "Enter zh-VN value"
         }
     },
     "required": [
         "key",
-        "tw",
         "cn",
         "en",
-        "vi",
-        "ja"
+        "jp",
+        "vn"
     ]
 }

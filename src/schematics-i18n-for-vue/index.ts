@@ -11,9 +11,8 @@ export function schematicsI18nForVue(_options: any): Rule {
     let option = _options;
     let optionKey=Object.keys(option)
     optionKey.shift()
-    console.log(optionKey)
     optionKey.forEach(lang=>{
-      let langUrl=`./src/assets/lang/${lang}.js`
+      let langUrl=`./app/scripts/utility/language/${lang}.js`
       if(!tree.get(langUrl))
         return
       const checkHasType = tsquery.query<ts.ObjectLiteralExpression>(tree.read(langUrl)!.toString(),`ObjectLiteralExpression> PropertyAssignment[name.name=${type}]`).pop()
@@ -21,16 +20,16 @@ export function schematicsI18nForVue(_options: any): Rule {
       if(checkHasType){
         const getFinalProperty = tsquery.query<ts.ObjectLiteralExpression>(tree.read(langUrl)!.toString(),`PropertyAssignment[name.name=${type}]>ObjectLiteralExpression>PropertyAssignment`).pop()!
         const mainJsRecorder = tree.beginUpdate(langUrl);
-        mainJsRecorder.insertLeft(getFinalProperty.end, `,\n\t\t\t${key}:"${option[lang]}"`);
+        mainJsRecorder.insertLeft(getFinalProperty.end, `,\n\t\t\t\t"${key}":"${option[lang]}"`);
         tree.commitUpdate(mainJsRecorder);
         return
       }
       const mainJsRecorder = tree.beginUpdate(langUrl);
       const getFinalObjectLiteral = tsquery.query<ts.ObjectLiteralExpression>(tree.read(langUrl)!.toString(),'ObjectLiteralExpression > PropertyAssignment').pop()!
       if(type && key){
-        mainJsRecorder.insertLeft(getFinalObjectLiteral.end, `,\n\t\t${type}:{\n\t\t\t${key}:"${option[lang]}"\n\t\t}`);
+        mainJsRecorder.insertLeft(getFinalObjectLiteral.end, `,\n\t\t\t"${type}":{\n\t\t\t"${key}":"${option[lang]}"\n\t\t}`);
       }else{
-        mainJsRecorder.insertLeft(getFinalObjectLiteral.end, `,\n\t\t${type}:"${option[lang]}"`);
+        mainJsRecorder.insertLeft(getFinalObjectLiteral.end, `,\n\t\t\t"${type}":"${option[lang]}"`);
       }
         
       tree.commitUpdate(mainJsRecorder);
